@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="/WEB-INF/views/navbar.jspf" %>
+<%@ include file="navbar.jspf" %>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
@@ -10,4 +10,10 @@
             crossorigin="anonymous"></script>
 </head>
 <body style="background-color: darkgrey;">
+    <%@ include file="carousel.jspf" %>
+    <div align="center" style="margin-top: 3%;">
+        <h1 style="color: cornsilk; font-weight: bold; font-size: 500%;">bem-vindo(a) ao
+            Museu de Arte de Santa Maria!</h1>
+    </div>
 </body>
+<%@ include file="footer.jspf" %>
