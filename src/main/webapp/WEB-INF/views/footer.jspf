@@ -1,0 +1,25 @@
+<footer class="card-footer bg-dark">
+    <div>
+        <h3 style="color: hotpink;">
+            Museu de Arte de Santa Maria - RS
+        </h3>
+    </div>
+    <div>
+        <h5 style="color: hotpink">
+            aberto à visitação das 08:00h às 16:00h <br> de segunda à sexta
+        </h5>
+    </div>
+    <div align="right">
+        <h5 style="color: hotpink;">
+           Avenida Presidente Vargas, 1400 <br>
+           Centro Integrado de Cultura Evandro Behr <br>
+            Santa Maria-RS <br>
+            CEP 97015-5010 <br>
+        </h5>
+    </div>
+    <div style="margin-top: 3%; font-style: italic; font-weight: bold;" align="center">
+        <p style="color: cornsilk;">
+            expomanager 2022 - projeto integrador - ewe barbó
+        </p>
+    </div>
+</footer>
