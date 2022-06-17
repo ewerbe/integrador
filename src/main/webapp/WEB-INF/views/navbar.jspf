@@ -45,7 +45,7 @@
                             </a>
                             <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownFuncionarios">
                                 <li><a class="dropdown-item" style="color: grey; padding-left: 5%;
-                                text-decoration: none;" href="#">novo(a)</a></li>
+                                text-decoration: none;" href="/novo-colaborador.action">novo(a)</a></li>
                                 <li><a class="dropdown-item" style="color: grey; padding-left: 5%;
                                 text-decoration: none;"  href="#">todos(as)</a></li>
                             </ul>
