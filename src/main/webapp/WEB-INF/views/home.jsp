@@ -12,7 +12,8 @@
 <body style="background-color: darkgrey;">
     <%@ include file="carousel.jspf" %>
     <div align="center" style="margin-top: 3%;">
-        <h1 style="color: cornsilk; font-weight: bold; font-size: 500%;">bem-vindo(a) ao
+        <h1 style="color: cornsilk; font-weight: bold;
+        font-size: 460%;">bem-vindo(a) ao
             Museu de Arte de Santa Maria!</h1>
     </div>
 </body>
