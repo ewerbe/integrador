@@ -12,7 +12,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" style="margin-left: 20%;" href="#" id="navbarDropdownAcervo" role="button"
+                        <a class="nav-link dropdown-toggle" style="margin-left: 20%;" id="navbarDropdownAcervo" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             acervo
                         </a>
@@ -25,7 +25,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" style="margin-left: 20%;" href="#" id="navbarDropdownExposicoes" role="button"
+                        <a class="nav-link dropdown-toggle" style="margin-left: 20%;" id="navbarDropdownExposicoes" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             exposições
                         </a>
@@ -39,15 +39,15 @@
 
                     <c:if test="${isGerente}">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" style="margin-left: 20%;" href="#" id="navbarDropdownFuncionarios" role="button"
+                            <a class="nav-link dropdown-toggle" style="margin-left: 20%;" id="navbarDropdownColaboradores" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 colaboradores
                             </a>
-                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownFuncionarios">
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownColaboradores">
                                 <li><a class="dropdown-item" style="color: grey; padding-left: 5%;
-                                text-decoration: none;" href="/novo-colaborador.action">novo(a)</a></li>
+                                text-decoration: none;" href="/cadastro-colaborador.action">novo(a)</a></li>
                                 <li><a class="dropdown-item" style="color: grey; padding-left: 5%;
-                                text-decoration: none;"  href="#">todos(as)</a></li>
+                                text-decoration: none;"  href="/colaboradores.action">todos(as)</a></li>
                             </ul>
                         </li>
                     </c:if>
