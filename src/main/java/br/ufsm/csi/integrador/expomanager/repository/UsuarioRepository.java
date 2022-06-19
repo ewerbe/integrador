@@ -9,9 +9,10 @@ import java.util.List;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Override
-    List<Usuario> findAll();
-
-    @Query(value = "SELECT * FROM USUARIOS US WHERE US.NOME = ?", nativeQuery = true)
-    Usuario findUsuarioByNome(@Param("nome") String nome);
+    //TODO: acho que não vou usar.
+//    @Override
+//    List<Usuario> findAll();
+//
+//    @Query(value = "SELECT * FROM USUARIOS US WHERE US.NOME = ?", nativeQuery = true)
+//    Usuario findUsuarioByNome(@Param("nome") String nome);
 }
