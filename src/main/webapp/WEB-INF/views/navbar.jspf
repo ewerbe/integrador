@@ -52,7 +52,15 @@
                         </li>
                     </c:if>
                </ul>
-                <a class="navbar-text" style="color: hotpink; font-weight: bold; text-decoration: none;"  href="/login">login</a>
+                <c:choose>
+                    <c:when test="${isGerente != null}">
+                        <a class="navbar-text" style="color: hotpink; font-weight: bold; text-decoration: none;"  href="/home">sair</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="navbar-text" style="color: hotpink; font-weight: bold; text-decoration: none;"  href="/login">login</a>
+                    </c:otherwise>
+                </c:choose>
+
             </div>
         </div>
 </nav>
