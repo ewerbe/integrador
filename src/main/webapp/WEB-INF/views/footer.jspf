@@ -9,17 +9,24 @@
             aberto à visitação das 08:00h às 16:00h <br> de segunda à sexta
         </h5>
     </div>
-    <div align="right">
-        <h5 style="color: hotpink;">
-           Avenida Presidente Vargas, 1400 <br>
-           Centro Integrado de Cultura Evandro Behr <br>
-            Santa Maria-RS <br>
-            CEP 97015-5010 <br>
-        </h5>
+    <div id="card-e-endereco">
+        <div class="card" style="width: 18rem;">
+            <img src="/images/masm-logo.png" class="card-img-top" alt="logotipo do masm.">
+        </div>
+        <div align="right" style="margin-top: 0;">
+            <h5 style="color: hotpink;">
+                Avenida Presidente Vargas, 1400 <br>
+                Centro Integrado de Cultura Evandro Behr <br>
+                Santa Maria-RS <br>
+                CEP 97015-5010 <br>
+            </h5>
+        </div>
     </div>
+
+
     <div style="margin-top: 3%; font-style: italic; font-weight: bold;" align="center">
         <p style="color: cornsilk;">
-            expomanager 2022 - projeto integrador - ewe barbó
+            UFSM - COLÉGIO POLITÉCNICO - CSI - projeto integrador - ewerton barbosa - expomanager 2022
         </p>
     </div>
 </footer>
