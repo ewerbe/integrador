@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.LinkedList;
+import java.util.List;
 
 @Controller
 public class ColaboradorController {
@@ -29,9 +31,12 @@ public class ColaboradorController {
         String senha = request.getParameter("senhaColaborador");
 
         Usuario colaborador = new Usuario(nome, email, senha, false, true);
+        //TODO: buscar do back;
+        List<Usuario> colaboradores = new LinkedList<>();
+        colaboradores.add(colaborador);
 
         model.addAttribute("isGerente", true);
-        model.addAttribute("colaborador", colaborador);
+        model.addAttribute("colaboradores", colaboradores);
         return "colaboradores";
     }
 }
