@@ -23,54 +23,53 @@
                     <th scope="col" style="color: hotpink; text-align: center;">ações</th>
                 </tr>
                 </thead>
-<%--                <c:forEach var="colaborador" items="colaboradores">--%>
-<%--                    <tr>--%>
-<%--                        <th scope="row">${colaborador.getNome()}</th>--%>
-<%--                        <td>${colaborador.getEmail()}</td>--%>
-<%--                        <td>--%>
-<%--                            <c:if test="${colaborador.getAtivo()}">--%>
-<%--                                ativo(a)--%>
-<%--                            </c:if>--%>
-<%--                            <c:if test="${!colaborador.getAtivo()}">--%>
-<%--                                inativo(a)--%>
-<%--                            </c:if>--%>
-<%--                        </td>--%>
-<%--                        <td align="center">--%>
-<%--                            <button class="btn btn-outline-light">editar</button>--%>
-<%--                            <button class="btn btn-outline-danger">excluir</button>--%>
-<%--                        </td>--%>
-<%--                    </tr>--%>
-
-<%--                </c:forEach>--%>
-                                    <tbody>
-                <tr>
-                    <th scope="row">Jonelson Braga</th>
-                    <td>jonel@gmail.com</td>
-                    <td>ativo(a)</td>
-                    <td align="center">
-                        <button class="btn btn-outline-light">editar</button>
-                        <button class="btn btn-outline-danger">excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Brunelli de la Vega</th>
-                    <td>bruvega@gmail.com</td>
-                    <td>ativo(a)</td>
-                    <td align="center">
-                        <button class="btn btn-outline-light">editar</button>
-                        <button class="btn btn-outline-danger">excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Toner Muriel</th>
-                    <td>toner@gmail.com</td>
-                    <td>ativo(a)</td>
-                    <td align="center">
-                        <button class="btn btn-outline-light">editar</button>
-                        <button class="btn btn-outline-danger">excluir</button>
-                    </td>
-                </tr>
-
+                <tbody>
+                <c:forEach var="colaborador" items="${colaboradores}">
+                    <tr>
+                        <th scope="row">${colaborador.getNome()}</th>
+                        <td>${colaborador.getEmail()}</td>
+                        <td>
+                            <c:if test="${colaborador.getAtivo()}">
+                                ativo(a)
+                            </c:if>
+                            <c:if test="${!colaborador.getAtivo()}">
+                                inativo(a)
+                            </c:if>
+                        </td>
+                        <td align="center">
+                            <button class="btn btn-outline-light">editar</button>
+                            <button class="btn btn-outline-danger">excluir</button>
+                        </td>
+                    </tr>
+                </c:forEach>
+<%--                <tbody>--%>
+<%--                <tr>--%>
+<%--                    <th scope="row">Jonelson Braga</th>--%>
+<%--                    <td>jonel@gmail.com</td>--%>
+<%--                    <td>ativo(a)</td>--%>
+<%--                    <td align="center">--%>
+<%--                        <button class="btn btn-outline-light">editar</button>--%>
+<%--                        <button class="btn btn-outline-danger">excluir</button>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <th scope="row">Brunelli de la Vega</th>--%>
+<%--                    <td>bruvega@gmail.com</td>--%>
+<%--                    <td>ativo(a)</td>--%>
+<%--                    <td align="center">--%>
+<%--                        <button class="btn btn-outline-light">editar</button>--%>
+<%--                        <button class="btn btn-outline-danger">excluir</button>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <th scope="row">Toner Muriel</th>--%>
+<%--                    <td>toner@gmail.com</td>--%>
+<%--                    <td>ativo(a)</td>--%>
+<%--                    <td align="center">--%>
+<%--                        <button class="btn btn-outline-light">editar</button>--%>
+<%--                        <button class="btn btn-outline-danger">excluir</button>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
                 </tbody>
             </table>
         </div>
