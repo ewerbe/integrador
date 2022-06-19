@@ -18,6 +18,13 @@ public class Usuario {
     private Boolean gerente;
     private Boolean ativo;
 
+    public Usuario(String nome, String email, String senha, Boolean gerente, Boolean ativo) {
+    }
+
+    public Usuario() {
+
+    }
+
     public Long getIdUsuario() {
         return idUsuario;
     }
