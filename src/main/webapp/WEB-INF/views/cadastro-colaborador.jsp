@@ -9,7 +9,8 @@
             crossorigin="anonymous"></script>
 </head>
 <body style="background-color: darkgrey;">
-<form id="cadastroColaborador" action="/salvarColaborador.action">
+<%--<form id="cadastroColaborador" action="/salvarColaborador.action">--%>
+<form id="cadastroColaborador" action="/salvarColaborador.action" method="post">
     <div align="center" style="margin-top: 3%;">
         <c:choose>
             <c:when test="${colaborador != null}">
@@ -67,7 +68,7 @@
                 </div>
                 <div class="modal-footer bg-dark">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">cancelar</button>
-                    <input type="submit" class="btn btn-outline-light" data-bs-dismiss="modal"  formaction="/salvarColaborador.action">
+                    <input type="submit" class="btn btn-outline-light" data-bs-dismiss="modal">
                     salvar
                     </input>
                 </div>
