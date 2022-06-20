@@ -12,10 +12,19 @@ public class Usuario {
     @Column(name = "ID_USUARIO")
     private Long idUsuario;
 
+    @Column(name = "NOME")
     private String nome;
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "SENHA")
     private String senha;
+
+    @Column(name = "GERENTE")
     private Boolean gerente;
+
+    @Column(name = "ATIVO")
     private Boolean ativo;
 
     public Usuario(String nome, String email, String senha, Boolean gerente, Boolean ativo) {
