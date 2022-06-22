@@ -49,7 +49,7 @@
                    required>
         </div>
         <div align="left">
-            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalConfirmacao">
+            <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#modalConfirmacao">
                 salvar
             </button>
         </div>
@@ -63,7 +63,7 @@
                     <h5 class="modal-title"id="modalConfirmacaoLabel">confirme as alterações</h5>
                     <button type="button" class="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body bg-dark" style="color: antiquewhite;">
+                <div class="modal-body bg-dark" style="color: antiquewhite;" align="left">
                     deseja salvar estas alterações?
                 </div>
                 <div class="modal-footer bg-dark">
