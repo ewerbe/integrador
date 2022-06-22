@@ -37,8 +37,12 @@
                             </c:if>
                         </td>
                         <td align="center">
-                            <button class="btn btn-outline-light">editar</button>
-                            <button class="btn btn-outline-danger">excluir</button>
+                            <form method="post">
+                                <input type="submit" class="btn btn-outline-light"
+                                       formaction="/colaborador/editar-colaborador.action?id=${colaborador.getId()}" value="editar"/>
+                                <input type="submit" class="btn btn-outline-danger"
+                                       formaction="/colaborador/excluir-colaborador.action?id=${colaborador.getId()}" value="excluir"/>
+                            </form>
                         </td>
                     </tr>
                 </c:forEach>
@@ -74,5 +78,4 @@
             </table>
         </div>
 </body>
-
 <%@ include file="footer.jspf" %>
