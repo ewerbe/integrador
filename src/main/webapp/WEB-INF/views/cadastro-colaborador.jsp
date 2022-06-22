@@ -9,13 +9,13 @@
             crossorigin="anonymous"></script>
 </head>
 <body style="background-color: darkgrey;">
-<%--<form id="cadastroColaborador" action="/salvarColaborador.action">--%>
-<form id="cadastroColaborador" action="/salvarColaborador.action" method="post">
+<form id="cadastroColaborador" action="/colaborador/salvar-colaborador.action" method="post">
     <div align="center" style="margin-top: 3%;">
         <c:choose>
             <c:when test="${colaborador != null}">
                 <h1 style="color: grey; font-weight: bold;
             font-size: 460%;">editar colaborador(a)</h1>
+                <input type="hidden" id="idColaborador" name="idColaborador" value="${colaborador.getId()}"
             </c:when>
             <c:otherwise>
                 <h1 style="color: grey; font-weight: bold;
@@ -24,7 +24,7 @@
         </c:choose>
     </div>
     <div id="formContainer" style="width: 500px; margin: auto;">
-        <div class="mb-3">
+        <div class="mb-3" align="left">
             <label for="nomeColaborador" class="form-label" style="color: #262630;
                    font-weight: bold;">nome</label>
             <input type="text" class="form-control bg-dark" id="nomeColaborador" name="nomeColaborador"
