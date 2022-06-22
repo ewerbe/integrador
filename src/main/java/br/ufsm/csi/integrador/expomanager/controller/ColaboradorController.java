@@ -6,14 +6,12 @@ import br.ufsm.csi.integrador.expomanager.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -54,13 +52,19 @@ public class ColaboradorController {
 //        return "colaboradores";
 //    }
 
-    @RequestMapping(value = "/salvarColaborador.action", method = RequestMethod.POST)
+    @RequestMapping(value = "/colaborador/salvar-colaborador.action", method = RequestMethod.POST)
     public String salvarColaborador(Model model, HttpServletRequest request) {
+        String idColaboradorString = request.getParameter("idColaborador");
+        Long idColaborador = null;
+        if(idColaboradorString != null) {
+            idColaborador = Long.valueOf(idColaboradorString);
+        }
         String nome = request.getParameter("nomeColaborador");
         String email = request.getParameter("emailColaborador");
         String senha = request.getParameter("senhaColaborador");
 
         Usuario colaborador = new Usuario();
+        colaborador.setId(idColaborador);
         colaborador.setNome(nome);
         colaborador.setEmail(email);
         colaborador.setSenha(senha);
@@ -72,4 +76,20 @@ public class ColaboradorController {
         model.addAttribute("colaborador", colaborador);
         return "redirect:/colaboradores.action";
     }
+
+    @RequestMapping(value = "/colaborador/editar-colaborador.action", method = RequestMethod.POST)
+    public String salvarColaborador(Model model, HttpServletRequest request,
+                                    @RequestParam(value = "id") Long idColaborador) {
+        Usuario colaborador = usuarioService.find(idColaborador);
+        model.addAttribute("colaborador", colaborador);
+        return "cadastro-colaborador";
+    }
+
+    @RequestMapping(value = "/colaborador/excluir-colaborador.action", method = RequestMethod.POST)
+    public String excluirColaborador(@RequestParam(value = "id")Long idUsuario) {
+        usuarioService.delete(idUsuario);
+        return "colaboradores";
+    }
+
+
 }
