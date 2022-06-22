@@ -32,7 +32,7 @@
                    placeholder="nome do(a) colaborador(a)" style="color: antiquewhite; align-content: space-around;"
                     required>
         </div>
-        <div class="mb-3">
+        <div class="mb-3" align="left">
             <label for="emailColaborador" class="form-label" style="color: #262630;
                    font-weight: bold;">e-mail</label>
             <input type="email" class="form-control bg-dark" id="emailColaborador" name="emailColaborador"
@@ -40,7 +40,7 @@
                    placeholder="e-mail do(a) colaborador(a)" style="color: antiquewhite;"
                    required>
         </div>
-        <div class="mb-3">
+        <div class="mb-3" align="left">
             <label for="senhaColaborador" class="form-label" style="color: #262630;
                     font-weight: bold;">senha</label>
             <input type="password" class="form-control bg-dark" id="senhaColaborador" name="senhaColaborador"
@@ -48,7 +48,7 @@
                    placeholder="senha do(a) colaborador(a)" style="color: antiquewhite;"
                    required>
         </div>
-        <div>
+        <div align="left">
             <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalConfirmacao">
                 salvar
             </button>
