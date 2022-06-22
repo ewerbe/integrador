@@ -88,7 +88,7 @@ public class ColaboradorController {
     @RequestMapping(value = "/colaborador/excluir-colaborador.action", method = RequestMethod.POST)
     public String excluirColaborador(@RequestParam(value = "id")Long idUsuario) {
         usuarioService.delete(idUsuario);
-        return "colaboradores";
+        return "redirect:/colaboradores.action";
     }
 
 
