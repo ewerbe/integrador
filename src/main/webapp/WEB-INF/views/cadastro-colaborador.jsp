@@ -48,12 +48,27 @@
                    placeholder="senha do(a) colaborador(a)" style="color: antiquewhite;"
                    required>
         </div>
+        <div class="mb-3" align="left">
+                <c:choose>
+                    <c:when test="${colaborador != null && colaborador.getAtivo()}">
+                        <input class="form-check-input" type="checkbox" id="checkColaboradorAtivo"
+                               name="checkColaboradorAtivo" checked>
+                    </c:when>
+                    <c:otherwise>
+                        <input class="form-check-input" type="checkbox" id="checkColaboradorAtivo"
+                               name="checkColaboradorAtivo">
+                    </c:otherwise>
+                </c:choose>
+                <label class="form-check-label" for="checkColaboradorAtivo" style="color: #262630;
+                   font-weight: bold;">
+                    ativo(a)
+                </label>
+        </div>
         <div align="left">
             <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#modalConfirmacao">
                 salvar
             </button>
         </div>
-    </div>
     <!-- Modal de confirmação de cadastro-->
     <div class="modal fade" id="modalConfirmacao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
          aria-labelledby="modalConfirmacaoLabel" aria-hidden="true">
@@ -75,7 +90,8 @@
             </div>
         </div>
     </div>
+    </div>
+    </div>
 </form>
 </body>
-
 <%@ include file="footer.jspf" %>

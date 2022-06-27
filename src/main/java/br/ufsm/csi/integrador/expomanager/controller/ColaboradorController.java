@@ -44,13 +44,15 @@ public class ColaboradorController {
         String nome = request.getParameter("nomeColaborador");
         String email = request.getParameter("emailColaborador");
         String senha = request.getParameter("senhaColaborador");
+        String ativoString = request.getParameter("checkColaboradorAtivo");
+        Boolean ativo = ativoString != null && ativoString.equals("on");
 
         Usuario colaborador = new Usuario();
         colaborador.setId(idColaborador);
         colaborador.setNome(nome);
         colaborador.setEmail(email);
         colaborador.setSenha(senha);
-        colaborador.setAtivo(true);
+        colaborador.setAtivo(ativo);
         colaborador.setGerente(false);
 
         usuarioService.save(colaborador);
