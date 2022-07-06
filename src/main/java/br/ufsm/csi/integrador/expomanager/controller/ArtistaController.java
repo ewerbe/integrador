@@ -39,14 +39,14 @@ public class ArtistaController {
             idArtista = Long.valueOf(idArtistaString);
         }
         String nome = request.getParameter("nomeArtista");
-        String nacionalidade = request.getParameter("nacionalidadeArtista");
+        String paisOrigem = request.getParameter("paisOrigem");
         Long anoNascimento = Long.valueOf( (request.getParameter("anoNascimentoArtista")) );
         Long anoMorte = Long.valueOf( (request.getParameter("anoMorteArtista")) );
 
         Artista artista = new Artista();
         artista.setId(idArtista);
         artista.setNome(nome);
-        artista.setNacionalidade(nacionalidade);
+        artista.setPaisOrigem(paisOrigem);
         artista.setAnoNascimento(anoNascimento);
         artista.setAnoMorte(anoMorte);
 
