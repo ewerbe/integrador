@@ -20,7 +20,7 @@
                             <li><a class="dropdown-item" style="color: grey; padding-left: 5%;
                             text-decoration: none;" href="#">obras</a></li>
                             <li><a class="dropdown-item" style="color: grey; padding-left: 5%;
-                            text-decoration: none;"  href="#">artistas</a></li>
+                            text-decoration: none;"  href="/artistas.action">artistas</a></li>
                            </ul>
                     </li>
 
