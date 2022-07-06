@@ -14,8 +14,8 @@ public class Artista{
     @Column(name = "NOME")
     private String nome;
 
-    @Column(name = "NACIONALIDADE")
-    private String nacionalidade;
+    @Column(name = "PAIS_ORIGEM")
+    private String paisOrigem;
 
     @Column(name = "ANO_NASCIMENTO")
     private Long anoNascimento;
@@ -23,9 +23,9 @@ public class Artista{
     @Column(name = "ANO_MORTE")
     private Long anoMorte;
 
-    public Artista(String nome, String nacionalidade, Long anoNascimento, Long anoMorte) {
+    public Artista(String nome, String paisOrigem, Long anoNascimento, Long anoMorte) {
         this.nome = nome;
-        this.nacionalidade = nacionalidade;
+        this.paisOrigem = paisOrigem;
         this.anoNascimento = anoNascimento;
         this.anoMorte = anoMorte;
     }
@@ -50,12 +50,12 @@ public class Artista{
     }
 
 
-    public String getNacionalidade() {
-        return nacionalidade;
+    public String getPaisOrigem() {
+        return paisOrigem;
     }
 
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
+    public void setPaisOrigem(String nacionalidade) {
+        this.paisOrigem = paisOrigem;
     }
 
     public Long getAnoNascimento() {
