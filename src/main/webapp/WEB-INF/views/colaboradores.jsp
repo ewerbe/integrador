@@ -41,19 +41,19 @@
                                 <input type="submit" class="btn btn-outline-light"
                                        formaction="/colaborador/editar-colaborador.action?id=${colaborador.getId()}" value="editar"/>
                                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalConfirmacaoExclusao">
+                                        data-bs-target="#modalConfirmacaoExclusaoColaborador">
                                     excluir
                                 </button>
                             </form>
                         </td>
                     </tr>
 <%--modal de confirmacao da exclusao--%>
-                    <div class="modal fade" id="modalConfirmacaoExclusao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                         aria-labelledby="modalConfirmacaoExclusaoLabel" aria-hidden="true">
+                    <div class="modal fade" id="modalConfirmacaoExclusaoColaborador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                         aria-labelledby="modalConfirmacaoExclusaoColaboradorLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header bg-dark" style="color: hotpink;" >
-                                    <h5 class="modal-title"id="modalConfirmacaoLabel">confirme as alterações</h5>
+                                    <h5 class="modal-title"id="modalConfirmacaoExclusaoColaboradorLabel">confirme as alterações</h5>
                                     <button type="button" class="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body bg-dark" style="color: antiquewhite;">
