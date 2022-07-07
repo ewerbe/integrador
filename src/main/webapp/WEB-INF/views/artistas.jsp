@@ -4,6 +4,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
@@ -13,47 +14,50 @@
             <h1 style="color: grey; font-weight: bold;
                 font-size: 460%;">artistas</h1>
         </div>
+        <div align = "center" style="margin: auto; width: 80%;">
+            <%@ include file="pesquisa.jspf" %>
+        </div>
         <div id="tableColaboradoresContainer" align="center;" style="margin: auto; width: 80%;">
             <table class="table table-dark table-hover">
-                <thead>
-                <tr>
-                    <th scope="col" style="color: hotpink;">nome</th>
-                    <th scope="col" style="color: hotpink;">país de origem</th>
-                    <th scope="col" style="color: hotpink;">status</th>
-                    <th scope="col" style="color: hotpink; text-align: center;">ações</th>
-                </tr>
-                </thead>
+<%--                <thead>--%>
+<%--                <tr>--%>
+<%--                    <th scope="col" style="color: hotpink;">nome</th>--%>
+<%--                    <th scope="col" style="color: hotpink;">país de origem</th>--%>
+<%--                    <th scope="col" style="color: hotpink;">status</th>--%>
+<%--                    <th scope="col" style="color: hotpink; text-align: center;">ações</th>--%>
+<%--                </tr>--%>
+<%--                </thead>--%>
                 <tbody>
-                <c:forEach var="colaborador" items="${colaboradores}">
+                <c:forEach var="artista" items="${artistas}">
                     <tr>
-                        <th scope="row">${colaborador.getNome()}</th>
-                        <td>${colaborador.getEmail()}</td>
-                        <td>
-                            <c:if test="${colaborador.getAtivo()}">
-                                ativo(a)
-                            </c:if>
-                            <c:if test="${!colaborador.getAtivo()}">
-                                inativo(a)
-                            </c:if>
+                        <th scope="row" style="font-weight: bolder;">${artista.getNome()}</th>
+<%--                        <td>${artista.getEmail()}</td>--%>
+
+                        <td align="center">
+                           <a style="font-weight: bolder; color: #b92434; font-style: normal"
+                              href="/obras/obras-artista.action?id=${artista.getId()}">
+                               VER OBRAS
+                           </a>
                         </td>
+
                         <td align="center">
                             <form method="post">
                                 <input type="submit" class="btn btn-outline-light"
-                                       formaction="/colaborador/editar-colaborador.action?id=${colaborador.getId()}" value="editar"/>
+                                       formaction="/colaborador/editar-artista.action?id=${artista.getId()}" value="editar"/>
                                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalConfirmacaoExclusao">
+                                        data-bs-target="#modalConfirmacaoExclusaoArtista">
                                     excluir
                                 </button>
                             </form>
                         </td>
                     </tr>
 <%--modal de confirmacao da exclusao--%>
-                    <div class="modal fade" id="modalConfirmacaoExclusao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                         aria-labelledby="modalConfirmacaoExclusaoLabel" aria-hidden="true">
+                    <div class="modal fade" id="modalConfirmacaoExclusaoArtista" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                         aria-labelledby="modalConfirmacaoExclusaoArtistaLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header bg-dark" style="color: hotpink;" >
-                                    <h5 class="modal-title"id="modalConfirmacaoLabel">confirme as alterações</h5>
+                                    <h5 class="modal-title"id="modalConfirmacaoExclusaoArtistaLabel">confirme as alterações</h5>
                                     <button type="button" class="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body bg-dark" style="color: antiquewhite;">
@@ -74,6 +78,12 @@
                 </c:forEach>
                 </tbody>
             </table>
+        </div>
+
+        <div>
+            <button type="submit" class="btn-lg btn-dark" style="font-weight: bolder; color: hotpink; margin-left: 71%;">
+                <span style="white-space: nowrap;">novo(a) <i class="bi bi-plus-circle"></i></span>
+            </button>
         </div>
 </body>
 <%@ include file="footer.jspf" %>
