@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="navbar.jspf" %>
 <head>
@@ -20,7 +21,7 @@
                     <th scope="col" style="color: hotpink;">nome</th>
                     <th scope="col" style="color: hotpink;">e-mail</th>
                     <th scope="col" style="color: hotpink;">status</th>
-                    <th scope="col" style="color: hotpink; text-align: center;">ações</th>
+                    <th scope="col" style="color: hotpink; text-align: center;">aÃ§Ãµes</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -53,7 +54,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header bg-dark" style="color: hotpink;" >
-                                    <h5 class="modal-title"id="modalConfirmacaoExclusaoColaboradorLabel">confirme as alterações</h5>
+                                    <h5 class="modal-title"id="modalConfirmacaoExclusaoColaboradorLabel">confirme as alteraÃ§Ãµes</h5>
                                     <button type="button" class="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body bg-dark" style="color: antiquewhite;">

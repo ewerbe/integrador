@@ -33,15 +33,21 @@ public class ArtistaController {
 
     @RequestMapping(value = "/artista/salvar-artista.action", method = RequestMethod.POST)
     public String salvarArtista(Model model, HttpServletRequest request) {
-        String idArtistaString = request.getParameter("idArtista");
+        String idArtistaString = null;
+        idArtistaString = request.getParameter("idArtista");
+        String anoMorteArtistaString = null;
+        request.getParameter("anoMorteArtista");
         Long idArtista = null;
-        if(!idArtistaString.isEmpty()) {
+        if(idArtistaString!=null) {
             idArtista = Long.valueOf(idArtistaString);
         }
         String nome = request.getParameter("nomeArtista");
         String paisOrigem = request.getParameter("paisOrigem");
         Long anoNascimento = Long.valueOf( (request.getParameter("anoNascimentoArtista")) );
-        Long anoMorte = Long.valueOf( (request.getParameter("anoMorteArtista")) );
+        Long anoMorte = null;
+        if(anoMorteArtistaString != null){
+            anoMorte = Long.valueOf( anoMorteArtistaString );
+        }
 
         Artista artista = new Artista();
         artista.setId(idArtista);

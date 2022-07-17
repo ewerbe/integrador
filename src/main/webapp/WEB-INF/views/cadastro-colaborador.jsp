@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="navbar.jspf" %>
 <head>
@@ -69,17 +70,17 @@
                 salvar
             </button>
         </div>
-    <!-- Modal de confirmação de cadastro-->
+    <!-- Modal de confirmaÃ§Ã£o de cadastro-->
     <div class="modal fade" id="modalConfirmacao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
          aria-labelledby="modalConfirmacaoLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-dark" style="color: hotpink;" >
-                    <h5 class="modal-title"id="modalConfirmacaoLabel">confirme as alterações</h5>
+                    <h5 class="modal-title"id="modalConfirmacaoLabel">confirme as alteraÃ§Ãµes</h5>
                     <button type="button" class="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-dark" style="color: antiquewhite;" align="left">
-                    deseja salvar estas alterações?
+                    deseja salvar estas alteraÃ§Ãµes?
                 </div>
                 <div class="modal-footer bg-dark">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">cancelar</button>

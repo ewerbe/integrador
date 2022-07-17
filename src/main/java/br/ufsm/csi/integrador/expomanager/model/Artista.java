@@ -54,7 +54,7 @@ public class Artista{
         return paisOrigem;
     }
 
-    public void setPaisOrigem(String nacionalidade) {
+    public void setPaisOrigem(String paisOrigem) {
         this.paisOrigem = paisOrigem;
     }
 

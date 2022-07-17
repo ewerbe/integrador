@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="navbar.jspf" %>
 <head>
@@ -19,22 +20,13 @@
         </div>
         <div id="tableColaboradoresContainer" align="center;" style="margin: auto; width: 80%;">
             <table class="table table-dark table-hover">
-<%--                <thead>--%>
-<%--                <tr>--%>
-<%--                    <th scope="col" style="color: hotpink;">nome</th>--%>
-<%--                    <th scope="col" style="color: hotpink;">país de origem</th>--%>
-<%--                    <th scope="col" style="color: hotpink;">status</th>--%>
-<%--                    <th scope="col" style="color: hotpink; text-align: center;">ações</th>--%>
-<%--                </tr>--%>
-<%--                </thead>--%>
                 <tbody>
                 <c:forEach var="artista" items="${artistas}">
-                    <tr>
+                    <tr style="margin-top: 10%;">
                         <th scope="row" style="font-weight: bolder;">${artista.getNome()}</th>
-<%--                        <td>${artista.getEmail()}</td>--%>
 
                         <td align="center">
-                           <a style="font-weight: bolder; color: #b92434; font-style: normal"
+                           <a style="font-weight: bolder; color: hotpink; font-style: normal"
                               href="/obras/obras-artista.action?id=${artista.getId()}">
                                VER OBRAS
                            </a>
@@ -43,7 +35,7 @@
                         <td align="center">
                             <form method="post">
                                 <input type="submit" class="btn btn-outline-light"
-                                       formaction="/colaborador/editar-artista.action?id=${artista.getId()}" value="editar"/>
+                                       formaction="/artista/editar-artista.action?id=${artista.getId()}" value="editar"/>
                                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalConfirmacaoExclusaoArtista">
                                     excluir
@@ -57,7 +49,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header bg-dark" style="color: hotpink;" >
-                                    <h5 class="modal-title"id="modalConfirmacaoExclusaoArtistaLabel">confirme as alterações</h5>
+                                    <h5 class="modal-title"id="modalConfirmacaoExclusaoArtistaLabel">confirme as alteraÃ§Ãµes</h5>
                                     <button type="button" class="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body bg-dark" style="color: antiquewhite;">
@@ -67,7 +59,7 @@
                                     <form method="post">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
                                         <input type="submit" class="btn btn-outline-danger"
-                                               formaction="/colaborador/excluir-colaborador.action?id=${colaborador.getId()}"
+                                               formaction="/artista/excluir-artista.action?id=${artista.getId()}"
                                                value="excluir"/>
                                     </form>
                                 </div>
@@ -81,9 +73,13 @@
         </div>
 
         <div>
-            <button type="submit" class="btn-lg btn-dark" style="font-weight: bolder; color: hotpink; margin-left: 71%;">
-                <span style="white-space: nowrap;">novo(a) <i class="bi bi-plus-circle"></i></span>
-            </button>
+            <form action="/cadastro-artista.action" method="get">
+                <button type="submit" class="btn-lg btn-dark"
+                        style="font-weight: bolder; color: hotpink; margin-left: 71%;">
+                    <span style="white-space: nowrap;">novo(a) <i class="bi bi-plus-circle"></i></span>
+                </button>
+            </form>
+
         </div>
 </body>
 <%@ include file="footer.jspf" %>
