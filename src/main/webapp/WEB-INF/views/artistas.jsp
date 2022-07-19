@@ -36,10 +36,10 @@
                             <form method="post">
                                 <input type="submit" class="btn btn-outline-light"
                                        formaction="/artista/editar-artista.action?id=${artista.getId()}" value="editar"/>
-                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalConfirmacaoExclusaoArtista">
-                                    excluir
-                                </button>
+<%--                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"--%>
+<%--                                        data-bs-target="#modalConfirmacaoExclusaoArtista">--%>
+<%--                                    excluir--%>
+<%--                                </button>--%>
                             </form>
                         </td>
                     </tr>

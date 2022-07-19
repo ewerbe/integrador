@@ -26,6 +26,8 @@
                 </thead>
                 <tbody>
                 <c:forEach var="colaborador" items="${colaboradores}">
+                    <input type="hidden" value="${colaborador.getId()}" name="idColaboradorExclusao"
+                           id="idColaboradorExclusao"/>
                     <tr>
                         <th scope="row">${colaborador.getNome()}</th>
                         <td>${colaborador.getEmail()}</td>
@@ -41,15 +43,15 @@
                             <form method="post">
                                 <input type="submit" class="btn btn-outline-light"
                                        formaction="/colaborador/editar-colaborador.action?id=${colaborador.getId()}" value="editar"/>
-                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalConfirmacaoExclusaoColaborador">
-                                    excluir
-                                </button>
+<%--                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"--%>
+<%--                                        data-bs-target="#modalConfirmacaoExclusaoColaborador">--%>
+<%--                                    excluir--%>
+<%--                                </button>--%>
                             </form>
                         </td>
                     </tr>
 <%--modal de confirmacao da exclusao--%>
-                    <div class="modal fade" id="modalConfirmacaoExclusaoColaborador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    <div class="modal fade" id="modalConfirmacaoExclusaoColaborador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1"
                          aria-labelledby="modalConfirmacaoExclusaoColaboradorLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -61,10 +63,11 @@
                                     deseja excluir este cadastro?
                                 </div>
                                 <div class="modal-footer bg-dark">
-                                    <form method="post">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
+                                    <form action="/colaborador/excluir-colaborador.action?id=${colaborador.getId()}" method="post">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            cancelar
+                                        </button>
                                         <input type="submit" class="btn btn-outline-danger"
-                                               formaction="/colaborador/excluir-colaborador.action?id=${colaborador.getId()}"
                                                value="excluir"/>
                                     </form>
                                 </div>

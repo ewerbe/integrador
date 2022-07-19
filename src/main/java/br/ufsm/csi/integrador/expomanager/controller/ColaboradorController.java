@@ -66,12 +66,15 @@ public class ColaboradorController {
                                     @RequestParam(value = "id") Long idColaborador) {
         Usuario colaborador = usuarioService.find(idColaborador);
         model.addAttribute("colaborador", colaborador);
+        model.addAttribute("isGerente", true);
         return "cadastro-colaborador";
     }
 
     @RequestMapping(value = "/colaborador/excluir-colaborador.action", method = RequestMethod.POST)
-    public String excluirColaborador(@RequestParam(value = "id")Long idUsuario) {
-        usuarioService.delete(idUsuario);
+    public String excluirColaborador(HttpServletRequest request) {
+        Long idColaborador = Long.parseLong(request.getParameter("idColaborador"));
+        Usuario colaborador = usuarioService.find(idColaborador);
+        usuarioService.delete(colaborador);
         return "redirect:/colaboradores.action";
     }
 

@@ -10,7 +10,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body style="background-color: darkgrey;">
-<form id="cadastroColaborador" action="/colaborador/salvar-colaborador.action" method="post">
+<form id="cadastroColaborador">
     <div align="center" style="margin-top: 3%;">
         <c:choose>
             <c:when test="${colaborador != null}">
@@ -69,7 +69,17 @@
             <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#modalConfirmacao">
                 salvar
             </button>
+            <c:if test="${colaborador != null}">
+                <button type="button" class="btn btn-outline-danger btn-lg" data-bs-toggle="modal" data-bs-target="#modalConfirmacao">
+                    excluir
+                </button>
+                <input type="submit" class="btn btn-dark" data-bs-dismiss="modal"
+                       formaction="/colaboradores.action" value="cancelar" formmethod="get" style="margin-left: 30%;"/>
+            </c:if>
         </div>
+
+
+
     <!-- Modal de confirmação de cadastro-->
     <div class="modal fade" id="modalConfirmacao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
          aria-labelledby="modalConfirmacaoLabel" aria-hidden="true">
@@ -83,10 +93,13 @@
                     deseja salvar estas alterações?
                 </div>
                 <div class="modal-footer bg-dark">
+                    <input type="submit" class="btn btn-outline-light" data-bs-dismiss="modal"
+                           formaction="/colaborador/salvar-colaborador.action" formmethod="post" value="salvar"/>
+                    <c:if test="${colaborador != null}">
+                         <input type="submit" class="btn btn-outline-danger" data-bs-dismiss="modal"
+                               formaction="/colaborador/excluir-colaborador.action" value="excluir" formmethod="post">
+                    </c:if>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">cancelar</button>
-                    <input type="submit" class="btn btn-outline-light" data-bs-dismiss="modal">
-                    salvar
-                    </input>
                 </div>
             </div>
         </div>

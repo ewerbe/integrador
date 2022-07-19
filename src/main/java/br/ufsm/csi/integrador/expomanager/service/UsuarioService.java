@@ -29,7 +29,12 @@ public class UsuarioService {
 //        usuarioRepository.save(colaborador);
 //    }
 
-    public void delete(Long idUsuario) {
-        usuarioRepository.deleteById(idUsuario);
+    //public void delete(Long idUsuario) {
+//        usuarioRepository.deleteById(idUsuario);
+//    }
+
+    public void delete(Usuario colaborador) {
+        usuarioRepository.delete(colaborador);
     }
+
 }
