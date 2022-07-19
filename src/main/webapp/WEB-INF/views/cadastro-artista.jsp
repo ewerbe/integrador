@@ -42,17 +42,17 @@
                     required style="color: cornsilk;">
               <c:forEach var="pais" items="${paises}">
                   <c:choose>
-                      <c:when test="${artista.getPaisOrigem() != null || artista.getPaisOrigem() == pais}">
-                          <option value="${artista.getPaisOrigem()}" selected>${pais}</option>
+                      <c:when test="${artista.getPaisOrigem() != null}">
+                          <c:if test="${artista.getPaisOrigem() == pais}">
+                              <option value="${artista.getPaisOrigem()}" selected>${pais}</option>
+                          </c:if>
+                          <option value="${pais}">${pais}</option>
                       </c:when>
                       <c:otherwise>
                           <option value="${pais}">${pais}</option>
                       </c:otherwise>
                   </c:choose>
               </c:forEach>
-
-
-
             </select>
         </div>
 
