@@ -59,7 +59,7 @@
         <div class="mb-3" align="left">
             <label for="anoNascimentoArtista" class="form-label" style="color: #262630;
                     font-weight: bold;">ano de nascimento</label>
-            <input type="number" min="1820" max="2022" class="form-control bg-dark" id="anoNascimentoArtista" name="anoNascimentoArtista"
+            <input type="number" min="1900" max="2022" class="form-control bg-dark" id="anoNascimentoArtista" name="anoNascimentoArtista"
                    value="${artista.getAnoNascimento()}"
                    placeholder="ano de nascimento do(a) artista" style="color: antiquewhite;"
                    required>
@@ -68,7 +68,7 @@
         <div class="mb-3" align="left">
             <label for="anoMorteArtista" class="form-label" style="color: #262630;
                     font-weight: bold;">ano de morte</label>
-            <input type="number" min="1820" max="2022" class="form-control bg-dark" id="anoMorteArtista" name="anoMorteArtista"
+            <input type="number" min="1900" max="2022" class="form-control bg-dark" id="anoMorteArtista" name="anoMorteArtista"
                    value="${artista.getAnoMorte()}"
                    placeholder="ano de morte do(a) artista" style="color: antiquewhite;">
         </div>
