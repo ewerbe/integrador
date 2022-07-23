@@ -21,6 +21,8 @@ public class Obra {
     @Column(name = "IMAGEM")
     private byte[] imagem;
 
+    private String imagemString;
+
     @OneToOne
     @JoinColumn(name="id_linguagem")
     private Linguagem linguagem;
@@ -87,6 +89,14 @@ public class Obra {
 
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
+    }
+
+    public String getImagemString() {
+        return imagemString;
+    }
+
+    public void setImagemString(String imagemString) {
+        this.imagemString = imagemString;
     }
 
     public Linguagem getLinguagem() {
