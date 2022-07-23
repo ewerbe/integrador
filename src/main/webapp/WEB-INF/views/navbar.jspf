@@ -18,7 +18,7 @@
                         </a>
                         <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownAcervo">
                             <li><a class="dropdown-item" style="color: grey; padding-left: 5%;
-                            text-decoration: none;" href="#">obras</a></li>
+                            text-decoration: none;" href="/obras.action">obras</a></li>
                             <li><a class="dropdown-item" style="color: grey; padding-left: 5%;
                             text-decoration: none;"  href="/artistas.action">artistas</a></li>
                            </ul>
