@@ -12,11 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
@@ -65,16 +62,15 @@ public class ObraController {
     }
 
     @RequestMapping(value = "/obra/salvar-obra.action", method = RequestMethod.POST)
-    public String salvarObra(Model model, HttpServletRequest request,
-                             @RequestParam( value = "img", required = false) MultipartFile img) throws IOException, ServletException {
+    public String salvarObra(HttpServletRequest request,
+                             @RequestParam( value = "img", required = false) MultipartFile img)
+            throws IOException {
         String idObraString;
         Long idObra = null;
         String titulo;
         Artista artista;
         Long idArtista;
-       // Part imagemPart;
         byte[] imagem;
-        //InputStream inputStreamImagemToObra;
         Linguagem linguagem;
         Long idLinguagem;
         Tecnica tecnica;
@@ -121,8 +117,7 @@ public class ObraController {
 
         obraService.save(obra);
 
-        //model.addAttribute("obra", obra); não precisa inserir no model
-        return "redirect:/artistas.action";
+        return "redirect:/obras.action";
     }
 
     @RequestMapping(value = "/obra/editar-obra.action", method = RequestMethod.POST)
@@ -153,7 +148,9 @@ public class ObraController {
     private List<Obra> getObrasToView() throws UnsupportedEncodingException {
         List<Obra> obras = obraService.findAll();
         for(Obra obra : obras) {
-            obra.setImagemString(byteToBase64(obra.getImagem()));
+            if(obra.getImagem() != null) {
+                obra.setImagemString(byteToBase64(obra.getImagem()));
+            }
         }
         return obras;
     }

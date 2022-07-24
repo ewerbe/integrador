@@ -47,11 +47,12 @@ public class Obra {
     public Obra() {
     }
 
-    public Obra(Artista artista, String titulo, byte[] imagem, Linguagem linguagem, Tecnica tecnica,
+    public Obra(Artista artista, String titulo, byte[] imagem, String imagemString, Linguagem linguagem, Tecnica tecnica,
                 Prateleira prateleira, Float altura, Float largura) {
         this.artista = artista;
         this.titulo = titulo;
         this.imagem = imagem;
+        this.imagemString = imagemString;
         this.linguagem = linguagem;
         this.tecnica = tecnica;
         this.prateleira = prateleira;

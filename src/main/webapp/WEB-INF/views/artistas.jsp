@@ -71,15 +71,15 @@
                 </tbody>
             </table>
         </div>
-
-        <div>
-            <form action="/cadastro-artista.action" method="get">
-                <button type="submit" class="btn-lg btn-dark"
-                        style="font-weight: bolder; color: hotpink; margin-left: 71%;">
-                    <span style="white-space: nowrap;">novo(a) <i class="bi bi-plus-circle"></i></span>
-                </button>
-            </form>
-
-        </div>
+<%--        <c:if test="${colaborador != null}">--%>
+            <div>
+                <form action="/cadastro-artista.action" method="get">
+                    <button type="submit" class="btn-lg btn-dark"
+                            style="font-weight: bolder; color: hotpink; margin-left: 71%;">
+                        <span style="white-space: nowrap;">novo(a) <i class="bi bi-plus-circle"></i></span>
+                    </button>
+                </form>
+            </div>
+<%--        </c:if>--%>
 </body>
 <%@ include file="footer.jspf" %>
