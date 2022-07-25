@@ -69,6 +69,7 @@ public class ObraController {
         Long idObra = null;
         String titulo;
         Artista artista;
+        Long ano;
         Long idArtista;
         byte[] imagem;
         Linguagem linguagem;
@@ -93,6 +94,7 @@ public class ObraController {
 
         titulo = request.getParameter("tituloObra");
         idArtista = Long.parseLong(request.getParameter("artistaToObra"));
+        ano = Long.parseLong(request.getParameter("anoToObra"));
         idLinguagem = Long.parseLong(request.getParameter("linguagemToObra"));
         idTecnica = Long.parseLong(request.getParameter("tecnicaToObra"));
         idPrateleira = Long.parseLong(request.getParameter("prateleiraToObra"));
@@ -108,6 +110,7 @@ public class ObraController {
         obra.setId(idObra);
         obra.setTitulo(titulo);
         obra.setArtista(artista);
+        obra.setAno(ano);
         obra.setImagem(imagem);
         obra.setLinguagem(linguagem);
         obra.setTecnica(tecnica);
@@ -122,11 +125,25 @@ public class ObraController {
 
     @RequestMapping(value = "/obra/editar-obra.action", method = RequestMethod.POST)
     public String salvarObra(Model model, HttpServletRequest request,
-                                @RequestParam(value = "id") Long idObra) {
-        Obra obra = obraService.find(idObra);
+                                @RequestParam(value = "id") Long idObra) throws UnsupportedEncodingException {
+        Obra obra = getObraToView(idObra);
+        List<Artista> artistasToObra;
+        List<Linguagem> linguagensToObra;
+        List<Tecnica> tecnicasToObra;
+        List<Prateleira> prateleirasToObra;
+
+        artistasToObra = artistaService.findAll();
+        linguagensToObra = linguagemService.findAll();
+        tecnicasToObra = tecnicaService.findAll();
+        prateleirasToObra = prateleiraService.findAll();
+
         //ArrayList<String> paises = getPaises();
         //model.addAttribute("paises", paises);
         model.addAttribute("obra", obra);
+        model.addAttribute("artistasToObra", artistasToObra);
+        model.addAttribute("linguagensToObra", linguagensToObra);
+        model.addAttribute("tecnicasToObra", tecnicasToObra);
+        model.addAttribute("prateleirasToObra", prateleirasToObra);
         model.addAttribute("isGerente", true);
         return "cadastro-obra";
     }
@@ -143,6 +160,14 @@ public class ObraController {
 
     private String byteToBase64(byte[] bt) throws UnsupportedEncodingException {
         return new String(Base64.encode(bt), "UTF-8");
+    }
+
+    private Obra getObraToView(Long idObra) throws UnsupportedEncodingException {
+        Obra obra = obraService.find(idObra);
+            if(obra.getImagem() != null) {
+                obra.setImagemString(byteToBase64(obra.getImagem()));
+            }
+        return obra;
     }
 
     private List<Obra> getObrasToView() throws UnsupportedEncodingException {

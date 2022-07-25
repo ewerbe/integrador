@@ -18,6 +18,8 @@ public class Obra {
     @Column(name = "TITULO")
     private String titulo;
 
+    private Long ano;
+
     @Column(name = "IMAGEM")
     private byte[] imagem;
 
@@ -47,10 +49,11 @@ public class Obra {
     public Obra() {
     }
 
-    public Obra(Artista artista, String titulo, byte[] imagem, String imagemString, Linguagem linguagem, Tecnica tecnica,
+    public Obra(Artista artista, String titulo, byte[] imagem, Long ano, String imagemString, Linguagem linguagem, Tecnica tecnica,
                 Prateleira prateleira, Float altura, Float largura) {
         this.artista = artista;
         this.titulo = titulo;
+        this.ano = ano;
         this.imagem = imagem;
         this.imagemString = imagemString;
         this.linguagem = linguagem;
@@ -74,6 +77,14 @@ public class Obra {
 
     public void setArtista(Artista artista) {
         this.artista = artista;
+    }
+
+    public Long getAno() {
+        return ano;
+    }
+
+    public void setAno(Long ano) {
+        this.ano = ano;
     }
 
     public String getTitulo() {

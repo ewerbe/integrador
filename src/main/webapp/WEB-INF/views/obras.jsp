@@ -1,5 +1,6 @@
 <%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="navbar.jspf" %>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -18,59 +19,27 @@
 <div align = "center" style="margin: auto; width: 80%;">
     <%@ include file="pesquisa.jspf" %>
 </div>
-<div id="obrasContainer" align="center;" style="margin: auto; width: 80%;">
 
-    <div>
+    <div align="center" style="width: 100%;">
+        <div style="display: flex; flex-wrap: wrap;">
         <c:forEach var="obra" items="${obras}">
-            <c:if test="${obra.getImagemString() != null}">
-                <div>
-                    <img src="data:image/png;base64,${obra.getImagemString()}"
-                     alt="" style="alignment: center;">
-                </div>
-            </c:if>
-                <div align="center">
-                    <div>
-
-                    </div>
-                    <a style="font-weight: bolder; color: hotpink; font-style: normal"
-                       href="/obras/obras-artista.action?id=${obra.getId()}">
-                        VER OBRAS
-                    </a>
-                </div>
-
-                <div align="center">
+            <div style="flex-direction: row; width: 50%;">
+                <img src="data:image/png;base64,${obra.getImagemString()}" alt="" width="80%;">
+                <div class="card-body bg-dark" style="width: 80%; margin-bottom: 5%; :hover{ width: 90%;}">
+                    <h5 class="card-title text-light" style="width: 80%;">${obra.getTitulo()}</h5>
+                    <p class="card-text text-light" style="width: 80%;">Artista: ${obra.getArtista().getNome()}<br>
+                        Ano: ${obra.getAno()}</p>
                     <form method="post">
-                        <input type="submit" class="btn btn-outline-light"
-                               formaction="/obra/editar-obra.action?id=${obra.getId()}" value="editar"/>
+                        <button type="submit" formaction="/obra/editar-obra.action?id=${obra.getId()}" class="btn btn-dark"
+                                style="color: hotpink; font-weight: bold;">
+                            <span style="white-space: nowrap;"><i class="bi bi-pencil"></i> editar</span>
+                        </button>
                     </form>
                 </div>
+            </div>
         </c:forEach>
+        </div>
     </div>
-            <%--modal de confirmacao da exclusao--%>
-<%--            <div class="modal fade" id="modalConfirmacaoExclusaoArtista" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"--%>
-<%--                 aria-labelledby="modalConfirmacaoExclusaoArtistaLabel" aria-hidden="true">--%>
-<%--                <div class="modal-dialog">--%>
-<%--                    <div class="modal-content">--%>
-<%--                        <div class="modal-header bg-dark" style="color: hotpink;" >--%>
-<%--                            <h5 class="modal-title"id="modalConfirmacaoExclusaoArtistaLabel">confirme as alterações</h5>--%>
-<%--                            <button type="button" class="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close"></button>--%>
-<%--                        </div>--%>
-<%--                        <div class="modal-body bg-dark" style="color: antiquewhite;">--%>
-<%--                            deseja excluir este cadastro?--%>
-<%--                        </div>--%>
-<%--                        <div class="modal-footer bg-dark">--%>
-<%--                            <form method="post">--%>
-<%--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>--%>
-<%--                                <input type="submit" class="btn btn-outline-danger"--%>
-<%--                                       formaction="/obra/excluir-obra.action?id=${obra.getId()}"--%>
-<%--                                       value="excluir"/>--%>
-<%--                            </form>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-
 
     <div>
 <%--        <c:if test="${colaborador != null}">--%>
@@ -82,6 +51,5 @@
             </form>
 <%--        </c:if>--%>
     </div>
-</div>
 </body>
 <%@ include file="footer.jspf" %>

@@ -127,9 +127,12 @@
         </div>
 
 <%--        div para imagem atual da obra--%>
-        <div>
-            <img src="data:image/png;base64,${obra.getImagemString()}"
-                 alt="" style="alignment: center;">
+        <div align="center" style="margin-bottom: 5%;">
+            <c:if test="${obra != null}">
+                <p class="form-label">imagem atual</p>
+                <img src="data:image/png;base64,${obra.getImagemString()}"
+                     alt="" style="alignment: center;" width="70%;">
+            </c:if>
         </div>
 
         <%--input para upload da imagem da obra--%>
