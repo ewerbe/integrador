@@ -1,6 +1,7 @@
 package br.ufsm.csi.integrador.expomanager.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table
@@ -29,6 +30,9 @@ public class Obra {
     @JoinColumn(name="id_linguagem")
     private Linguagem linguagem;
 
+    @ManyToMany(mappedBy = "obras")
+    private Set<Exposicao> exposicoes;
+
     @OneToOne
     @JoinColumn(name="id_tecnica")
     private Tecnica tecnica;
@@ -49,12 +53,13 @@ public class Obra {
     public Obra() {
     }
 
-    public Obra(Artista artista, String titulo, byte[] imagem, Long ano, String imagemString, Linguagem linguagem, Tecnica tecnica,
+    public Obra(Artista artista, String titulo, byte[] imagem, Long ano, Set<Exposicao> exposicoes, String imagemString, Linguagem linguagem, Tecnica tecnica,
                 Prateleira prateleira, Float altura, Float largura) {
         this.artista = artista;
         this.titulo = titulo;
         this.ano = ano;
         this.imagem = imagem;
+        this.exposicoes = exposicoes;
         this.imagemString = imagemString;
         this.linguagem = linguagem;
         this.tecnica = tecnica;
@@ -81,6 +86,14 @@ public class Obra {
 
     public Long getAno() {
         return ano;
+    }
+
+    public Set<Exposicao> getExposicoes() {
+        return exposicoes;
+    }
+
+    public void setExposicoes(Set<Exposicao> exposicoes) {
+        this.exposicoes = exposicoes;
     }
 
     public void setAno(Long ano) {
