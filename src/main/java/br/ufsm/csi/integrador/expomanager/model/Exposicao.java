@@ -33,6 +33,9 @@ public class Exposicao {
     @Column(name = "BANNER")
     private byte[] banner;
 
+    @Column(name = "BANNER_STRING")
+    private String bannerString;
+
     @Column(name = "ATIVA")
     private Boolean ativa;
 
@@ -100,6 +103,14 @@ public class Exposicao {
 
     public void setBanner(byte[] banner) {
         this.banner = banner;
+    }
+
+    public String getBannerString() {
+        return bannerString;
+    }
+
+    public void setBannerString(String bannerString) {
+        this.bannerString = bannerString;
     }
 
     public Boolean getAtiva() {
