@@ -55,6 +55,7 @@ public class ObraController {
     public String getObras(Model model) throws UnsupportedEncodingException {
         List<Obra> obras;
         obras = getObrasToView();
+        //obras = obraService.findAll();
 
         model.addAttribute("obras", obras);
         model.addAttribute("isGerente", true);
@@ -124,7 +125,7 @@ public class ObraController {
     }
 
     @RequestMapping(value = "/obra/editar-obra.action", method = RequestMethod.POST)
-    public String salvarObra(Model model, HttpServletRequest request,
+    public String editarObra(Model model, HttpServletRequest request,
                                 @RequestParam(value = "id") Long idObra) throws UnsupportedEncodingException {
         Obra obra = getObraToView(idObra);
         List<Artista> artistasToObra;
@@ -155,7 +156,21 @@ public class ObraController {
         return "redirect:/obras.action";
     }
 
+
+    @RequestMapping(value = "/obra-view.action", method = RequestMethod.GET)
+    public byte[] getObraBytesToView(HttpServletRequest request,
+                                     @RequestParam(value = "id")Long idObra) {
+        Obra obra = obraService.find(idObra);
+        byte[] obraBytes = obra.getImagem();
+        return obraBytes;
+    }
+
     //////////////////////////////////////métodos privados de ObraController
+
+//    private List<Obra> getObrasToViewBytes() {
+//        List<Obra> obrasBytesToView = obraService.findAll();
+//        return obrasBytesToView;
+//    }
 
 
     private String byteToBase64(byte[] bt) throws UnsupportedEncodingException {
