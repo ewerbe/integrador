@@ -1,5 +1,5 @@
 <form class="d-flex">
-    <input class="form-control mb-3 bg-dark" type="search" placeholder="pesquise pelo nome"
+    <input class="form-control mb-3 bg-dark text-light" type="search" placeholder="pesquise pelo nome"
            style="color: antiquewhite;">
     <button class="btn btn-outline-dark" type="button" style="margin-left: 1%; height: 40px;">
         <span style="white-space: nowrap;">pesquisar <i class="bi bi-search"></i></span>
