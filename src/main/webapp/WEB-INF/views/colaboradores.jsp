@@ -41,7 +41,7 @@
                         </td>
                         <td align="center">
                             <form method="post">
-                                <input type="submit" class="btn btn-outline-light"
+                                <input type="submit" class="btn btn-outline-info"
                                        formaction="/colaborador/editar-colaborador.action?id=${colaborador.getId()}" value="editar"/>
 <%--                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"--%>
 <%--                                        data-bs-target="#modalConfirmacaoExclusaoColaborador">--%>
