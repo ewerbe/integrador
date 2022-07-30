@@ -60,7 +60,7 @@ public class ExposicaoController {
     }
 
     @RequestMapping(value = "/exposicao/salvar-exposicao.action", method = RequestMethod.POST)
-    public String salvarObra(HttpServletRequest request,
+    public String salvarExposicao(HttpServletRequest request,
                              @RequestParam( value = "imgBanner", required = false) MultipartFile imgBanner,
                              @RequestParam(value = "id") Long idUsuario)
             throws IOException {
@@ -115,8 +115,8 @@ public class ExposicaoController {
         return "redirect:/exposicoes.action";
     }
 
-    @RequestMapping(value = "/obra/editar-obra.action", method = RequestMethod.POST)
-    public String salvarObra(Model model, HttpServletRequest request,
+    @RequestMapping(value = "/exposicao/editar-exposicao.action", method = RequestMethod.POST)
+    public String editarExposicao(Model model, HttpServletRequest request,
                              @RequestParam(value = "id") Long idObra) throws UnsupportedEncodingException {
         //Obra obra = getObraToView(idObra);
         List<Artista> artistasToObra;
@@ -137,14 +137,14 @@ public class ExposicaoController {
         model.addAttribute("tecnicasToObra", tecnicasToObra);
         model.addAttribute("prateleirasToObra", prateleirasToObra);
         model.addAttribute("isGerente", true);
-        return "cadastro-obra";
+        return "cadastro-exposicao";
     }
 
-    @RequestMapping(value = "/obra/excluir-obra.action", method = RequestMethod.POST)
-    public String excluirObra(HttpServletRequest request) {
+    @RequestMapping(value = "/exposicao/excluir-exposicao.action", method = RequestMethod.POST)
+    public String excluirExposicao(HttpServletRequest request) {
         Long idObra = Long.parseLong(request.getParameter("idObra"));
         obraService.delete(idObra);
-        return "redirect:/obras.action";
+        return "redirect:/exposicoes.action";
     }
 
     //////////////////////////////////////métodos privados de ExposicaoController
