@@ -18,6 +18,18 @@
         <div align = "center" style="margin: auto; width: 80%;">
             <%@ include file="pesquisa.jspf" %>
         </div>
+
+        <%--        <c:if test="${colaborador != null}">--%>
+        <div>
+            <form action="/cadastro-artista.action" method="get">
+                <button type="submit" class="btn-lg btn-dark"
+                        style="font-weight: bolder; color: hotpink; margin-left: 71%;">
+                    <span style="white-space: nowrap;">novo(a) <i class="bi bi-plus-circle"></i></span>
+                </button>
+            </form>
+        </div>
+        <%--        </c:if>--%>
+
         <div id="tableColaboradoresContainer" align="center;" style="margin: auto; width: 80%;">
             <table class="table table-dark table-hover">
                 <tbody>
@@ -34,7 +46,7 @@
 
                         <td align="center">
                             <form method="post">
-                                <input type="submit" class="btn btn-outline-light"
+                                <input type="submit" class="btn btn-outline-light" style="color: hotpink;"
                                        formaction="/artista/editar-artista.action?id=${artista.getId()}" value="editar"/>
                             </form>
                         </td>
@@ -68,15 +80,6 @@
                 </tbody>
             </table>
         </div>
-<%--        <c:if test="${colaborador != null}">--%>
-            <div>
-                <form action="/cadastro-artista.action" method="get">
-                    <button type="submit" class="btn-lg btn-dark"
-                            style="font-weight: bolder; color: hotpink; margin-left: 71%;">
-                        <span style="white-space: nowrap;">novo(a) <i class="bi bi-plus-circle"></i></span>
-                    </button>
-                </form>
-            </div>
-<%--        </c:if>--%>
+
 </body>
 <%@ include file="footer.jspf" %>

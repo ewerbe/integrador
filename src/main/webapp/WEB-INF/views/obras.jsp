@@ -20,18 +20,31 @@
     <%@ include file="pesquisa.jspf" %>
 </div>
 
+<div>
+    <%--        <c:if test="${colaborador != null}">--%>
+    <form action="/cadastro-obra.action" method="get">
+        <button type="submit" class="btn-lg btn-dark"
+                style="font-weight: bolder; color: hotpink; margin-left: 71%;">
+            <span style="white-space: nowrap;">nova <i class="bi bi-plus-circle"></i></span>
+        </button>
+    </form>
+    <%--        </c:if>--%>
+</div>
+
     <div align="center" style="width: 100%;">
         <div style="display: flex; flex-wrap: wrap;">
         <c:forEach var="obra" items="${obras}">
             <div style="flex-direction: row; width: 50%;">
                 <img src="data:image/png;base64,${obra.getImagemString()}" alt="" width="80%;">
+<%--    <img src="${obra.getImagem()}" alt="" width="80%;">--%>
+<%--                <img src="/obra-view.action?id=${obra.getId()}" alt="" width="80%;">--%>
                 <div class="card-body bg-dark" style="width: 80%; margin-bottom: 5%; :hover{ width: 90%;}">
                     <h5 class="card-title text-light" style="width: 80%;">${obra.getTitulo()}</h5>
                     <p class="card-text text-light" style="width: 80%;">Artista: ${obra.getArtista().getNome()}<br>
                         Ano: ${obra.getAno()}</p>
                     <form method="post">
-                        <button type="submit" formaction="/obra/editar-obra.action?id=${obra.getId()}" class="btn btn-dark"
-                                style="color: hotpink; font-weight: bold;">
+                        <button type="submit" formaction="/obra/editar-obra.action?id=${obra.getId()}" class="btn btn-outline-info"
+                                style="font-weight: bold;">
                             <span style="white-space: nowrap;"><i class="bi bi-pencil"></i> editar</span>
                         </button>
                     </form>
@@ -41,15 +54,6 @@
         </div>
     </div>
 
-    <div>
-<%--        <c:if test="${colaborador != null}">--%>
-            <form action="/cadastro-obra.action" method="get">
-                <button type="submit" class="btn-lg btn-dark"
-                        style="font-weight: bolder; color: hotpink; margin-left: 71%;">
-                    <span style="white-space: nowrap;">nova <i class="bi bi-plus-circle"></i></span>
-                </button>
-            </form>
-<%--        </c:if>--%>
-    </div>
+
 </body>
 <%@ include file="footer.jspf" %>
