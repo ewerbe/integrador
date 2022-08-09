@@ -12,6 +12,8 @@ public class ObraService {
 
     @Autowired
     private ObraRepository obraRepository;
+    @Autowired
+    private ArtistaService artistaService;
 
     public Obra find(Long idObra) {
         return obraRepository.findById(idObra).orElse(null);
@@ -23,6 +25,10 @@ public class ObraService {
 
     public List<Obra> findAll() {
         return obraRepository.findAll();
+    }
+
+    public List<Obra> findByArtista(Long idArtista) {
+        return obraRepository.findByArtista(artistaService.find(idArtista));
     }
 
     public void delete(Long idObra) {

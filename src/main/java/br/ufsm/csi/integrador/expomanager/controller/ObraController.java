@@ -64,7 +64,15 @@ public class ObraController {
         IOUtils.copy(inputStream, response.getOutputStream());
     }
 
+    //obras por artista
+    @RequestMapping(value = "/obras/obras-artista.action", method = RequestMethod.GET)
+    public String getObras(Model model, @RequestParam(value = "id")Long idArtista) throws UnsupportedEncodingException {
+        List<Obra> obras = obraService.findByArtista(idArtista);
 
+        model.addAttribute("obras", obras);
+        model.addAttribute("isGerente", true);
+        return "obras";
+    }
 
     @RequestMapping(value = "/obras.action", method = RequestMethod.GET)
     public String getObras(Model model) throws UnsupportedEncodingException {
