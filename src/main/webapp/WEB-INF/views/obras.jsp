@@ -35,9 +35,8 @@
         <div style="display: flex; flex-wrap: wrap;">
         <c:forEach var="obra" items="${obras}">
             <div style="flex-direction: row; width: 50%;">
-                <img src="data:image/png;base64,${obra.getImagemString()}" alt="" width="80%;">
-<%--    <img src="${obra.getImagem()}" alt="" width="80%;">--%>
-<%--                <img src="/obra-view.action?id=${obra.getId()}" alt="" width="80%;">--%>
+<%--                <img src="data:image/png;base64,${obra.getImagemString()}" alt="" width="80%;">--%>
+                <img src="/obra-view.action?id=${obra.getId()}" alt="" width="80%;">
                 <div class="card-body bg-dark" style="width: 80%; margin-bottom: 5%; :hover{ width: 90%;}">
                     <h5 class="card-title text-light" style="width: 80%;">${obra.getTitulo()}</h5>
                     <p class="card-text text-light" style="width: 80%;">Artista: ${obra.getArtista().getNome()}<br>
