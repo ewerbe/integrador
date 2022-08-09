@@ -2,6 +2,7 @@ package br.ufsm.csi.integrador.expomanager.controller;
 
 import br.ufsm.csi.integrador.expomanager.model.*;
 import br.ufsm.csi.integrador.expomanager.service.*;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.postgresql.shaded.com.ongres.scram.common.bouncycastle.base64.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
@@ -51,10 +55,22 @@ public class ObraController {
         return "cadastro-obra";
     }
 
+    //obras to view - byte[] to inputstream
+    @RequestMapping(value= "/obra-view.action", method = RequestMethod.GET)
+    public void getObraBytesToView(HttpServletResponse response,
+                                    @RequestParam(value = "id")Long id) throws IOException {
+        byte[] imagemByte = obraService.find(id).getImagem();
+        InputStream inputStream = new ByteArrayInputStream(imagemByte);
+        IOUtils.copy(inputStream, response.getOutputStream());
+    }
+
+
+
     @RequestMapping(value = "/obras.action", method = RequestMethod.GET)
     public String getObras(Model model) throws UnsupportedEncodingException {
-        List<Obra> obras;
-        obras = getObrasToView();
+        //List<Obra> obras;
+        List<Obra> obras = obraService.findAll();
+        //obras = getObrasToView();
         //obras = obraService.findAll();
 
         model.addAttribute("obras", obras);
@@ -127,7 +143,8 @@ public class ObraController {
     @RequestMapping(value = "/obra/editar-obra.action", method = RequestMethod.POST)
     public String editarObra(Model model, HttpServletRequest request,
                                 @RequestParam(value = "id") Long idObra) throws UnsupportedEncodingException {
-        Obra obra = getObraToView(idObra);
+        //Obra obra = getObraToView(idObra);
+        Obra obra = obraService.find(idObra);
         List<Artista> artistasToObra;
         List<Linguagem> linguagensToObra;
         List<Tecnica> tecnicasToObra;
@@ -157,43 +174,31 @@ public class ObraController {
     }
 
 
-    @RequestMapping(value = "/obra-view.action", method = RequestMethod.GET)
-    public byte[] getObraBytesToView(HttpServletRequest request,
-                                     @RequestParam(value = "id")Long idObra) {
-        Obra obra = obraService.find(idObra);
-        byte[] obraBytes = obra.getImagem();
-        return obraBytes;
-    }
-
     //////////////////////////////////////métodos privados de ObraController
 
-//    private List<Obra> getObrasToViewBytes() {
-//        List<Obra> obrasBytesToView = obraService.findAll();
-//        return obrasBytesToView;
+
+
+//    private String byteToBase64(byte[] bt) throws UnsupportedEncodingException {
+//        return new String(Base64.encode(bt), "UTF-8");
 //    }
 
+//    private Obra getObraToView(Long idObra) throws UnsupportedEncodingException {
+//        Obra obra = obraService.find(idObra);
+//            if(obra.getImagem() != null) {
+//                obra.setImagemString(byteToBase64(obra.getImagem()));
+//            }
+//        return obra;
+//    }
 
-    private String byteToBase64(byte[] bt) throws UnsupportedEncodingException {
-        return new String(Base64.encode(bt), "UTF-8");
-    }
-
-    private Obra getObraToView(Long idObra) throws UnsupportedEncodingException {
-        Obra obra = obraService.find(idObra);
-            if(obra.getImagem() != null) {
-                obra.setImagemString(byteToBase64(obra.getImagem()));
-            }
-        return obra;
-    }
-
-    private List<Obra> getObrasToView() throws UnsupportedEncodingException {
-        List<Obra> obras = obraService.findAll();
-        for(Obra obra : obras) {
-            if(obra.getImagem() != null) {
-                obra.setImagemString(byteToBase64(obra.getImagem()));
-            }
-        }
-        return obras;
-    }
+//    private List<Obra> getObrasToView() throws UnsupportedEncodingException {
+//        List<Obra> obras = obraService.findAll();
+//        for(Obra obra : obras) {
+//            if(obra.getImagem() != null) {
+//                obra.setImagemString(byteToBase64(obra.getImagem()));
+//            }
+//        }
+//        return obras;
+//    }
 
     private byte[] multipartFileToByte(MultipartFile img) throws IOException {
         byte[] bytesImg = img.getBytes();
