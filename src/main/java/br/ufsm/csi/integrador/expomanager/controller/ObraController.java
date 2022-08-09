@@ -66,7 +66,7 @@ public class ObraController {
 
     //obras por artista
     @RequestMapping(value = "/obras/obras-artista.action", method = RequestMethod.GET)
-    public String getObras(Model model, @RequestParam(value = "id")Long idArtista) throws UnsupportedEncodingException {
+    public String getObras(Model model, @RequestParam(value = "id")Long idArtista){
         List<Obra> obras = obraService.findByArtista(idArtista);
 
         model.addAttribute("obras", obras);
@@ -75,7 +75,7 @@ public class ObraController {
     }
 
     @RequestMapping(value = "/obras.action", method = RequestMethod.GET)
-    public String getObras(Model model) throws UnsupportedEncodingException {
+    public String getObras(Model model) {
         //List<Obra> obras;
         List<Obra> obras = obraService.findAll();
         //obras = getObrasToView();
