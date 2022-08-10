@@ -28,10 +28,25 @@ public class ArtistaController {
     @RequestMapping(value = "/artistas.action", method = RequestMethod.GET)
     public String getArtistas(Model model) {
         List<Artista> artistas;
+        String urlPesquisa = "/artista-pesquisa.action";
         artistas = artistaService.findAll();
         model.addAttribute("artistas", artistas);
+        model.addAttribute("urlPesquisa", urlPesquisa);
         model.addAttribute("isGerente", true);
         return "artistas";
+    }
+
+    @RequestMapping(value = "/artista-pesquisa.action", method = RequestMethod.POST)
+    public String getArtistaByName(Model model, HttpServletRequest request) {
+        String artistaNomePesquisa = request.getParameter("nomePesquisa");
+        Artista artistaPesquisado = artistaService.findByNome(artistaNomePesquisa);
+        if(artistaPesquisado!=null) {
+            model.addAttribute("artistaPesquisado", artistaPesquisado);
+        }else {
+            model.addAttribute("artistaPesquisado", null);
+        }
+        model.addAttribute("isGerente", true);
+        return "artista";
     }
 
     @RequestMapping(value = "/artista/salvar-artista.action", method = RequestMethod.POST)

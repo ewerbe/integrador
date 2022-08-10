@@ -17,6 +17,8 @@ public class ArtistaService {
         return artistaRepository.findById(idArtista).orElse(null);
     }
 
+    public Artista findByNome(String nome){return artistaRepository.findByNome(nome);}
+
     public void save(Artista artista) {
         artistaRepository.save(artista);
     }
