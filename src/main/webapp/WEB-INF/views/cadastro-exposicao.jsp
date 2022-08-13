@@ -11,173 +11,131 @@
 </head>
 <body style="background-color: darkgrey;">
 <form id="cadastroExposicao" enctype="multipart/form-data" >
-    <div align="center" style="margin-top: 3%;">
-        <c:choose>
-            <c:when test="${exposicao != null}">
-                <h1 style="color: grey; font-weight: bold;
-            font-size: 460%;">editar exposição</h1>
-                <input type="hidden" id="idExposicao" name="idExposicao" value="${exposicao.getId()}"
-            </c:when>
-            <c:otherwise>
-                <h1 style="color: grey; font-weight: bold;
-            font-size: 460%;">nova exposição</h1>
-            </c:otherwise>
-        </c:choose>
-    </div>
-    <div id="formContainer" style="width: 500px; margin: auto;">
+    <div id="formContainer" style="width: 60%; margin: auto;" >
+
+        <div align="center" style="margin-top: 3%;">
+            <c:choose>
+                <c:when test="${exposicao != null}">
+                    <h1 style="color: grey; font-weight: bold;
+                font-size: 460%;">editar exposição</h1>
+                    <input type="hidden" id="idExposicao" name="idExposicao" value="${exposicao.getId()}"
+                </c:when>
+                <c:otherwise>
+                    <h1 style="color: grey; font-weight: bold;
+                font-size: 460%;">nova exposição</h1>
+                </c:otherwise>
+            </c:choose>
+        </div>
+
         <div class="mb-3" align="left">
             <label for="tituloExposicao" class="form-label" style="color: #262630;
-                   font-weight: bold;">título</label>
+                       font-weight: bold;">título</label>
             <input type="text" class="form-control bg-dark" id="tituloExposicao" name="tituloExposicao"
                    value="${exposicao.getTitulo()}"
                    placeholder="título da exposição" style="color: antiquewhite; align-content: space-around;"
-                   required>
+                   required/>
         </div>
 
-        <%--        select para o artista da obra--%>
-<%--        <div class="mb-3" align="left">--%>
-<%--            <label for="artistaToObra" class="form-label" style="color: #262630;--%>
-<%--                   font-weight: bold;">artista</label>--%>
-<%--            <select class="form-control bg-dark" id="artistaToObra" name="artistaToObra"--%>
-<%--                    value="${obra.getArtista().getNome()}"--%>
-<%--                    required style="color: cornsilk;">--%>
-<%--                <c:forEach var="artistaToObra" items="${artistasToObra}">--%>
-<%--                    <c:choose>--%>
-<%--                        <c:when test="${obra.getArtista() != null}">--%>
-<%--                            <c:if test="${obra.getArtista() == artistaToObra}">--%>
-<%--                                <option value="${obra.getArtista().getId()}" selected>${artistaToObra.getNome()}</option>--%>
-<%--                            </c:if>--%>
-<%--                            <option value="${artistaToObra.getId()}">${artistaToObra.getNome()}</option>--%>
-<%--                        </c:when>--%>
-<%--                        <c:otherwise>--%>
-<%--                            <option value="${artistaToObra.getId()}">${artistaToObra.getNome()}</option>--%>
-<%--                        </c:otherwise>--%>
-<%--                    </c:choose>--%>
-<%--                </c:forEach>--%>
-<%--            </select>--%>
-<%--        </div>--%>
-
-        <%--        select para a linguagem da obra--%>
-<%--        <div class="mb-3" align="left">--%>
-<%--            <label for="linguagemToObra" class="form-label" style="color: #262630;--%>
-<%--                   font-weight: bold;">linguagem</label>--%>
-<%--            <select class="form-control bg-dark" id="linguagemToObra" name="linguagemToObra"--%>
-<%--                    value="${obra.getLinguagem().getDescricao()}"--%>
-<%--                    required style="color: cornsilk;">--%>
-<%--                <c:forEach var="linguagemToObra" items="${linguagensToObra}">--%>
-<%--                    <c:choose>--%>
-<%--                        <c:when test="${obra.getLinguagem() != null}">--%>
-<%--                            <c:if test="${obra.getLinguagem() == linguagemToObra}">--%>
-<%--                                <option value="${obra.getLinguagem().getId()}" selected>${linguagemToObra.getDescricao()}</option>--%>
-<%--                            </c:if>--%>
-<%--                            <option value="${linguagemToObra.getId()}">${linguagemToObra.getDescricao()}</option>--%>
-<%--                        </c:when>--%>
-<%--                        <c:otherwise>--%>
-<%--                            <option value="${linguagemToObra.getId()}">${linguagemToObra.getDescricao()}</option>--%>
-<%--                        </c:otherwise>--%>
-<%--                    </c:choose>--%>
-<%--                </c:forEach>--%>
-<%--            </select>--%>
-<%--        </div>--%>
-
-        <%--        select para a técnica da obra--%>
-<%--        <div class="mb-3" align="left">--%>
-<%--            <label for="tecnicaToObra" class="form-label" style="color: #262630;--%>
-<%--                   font-weight: bold;">técnica</label>--%>
-<%--            <select class="form-control bg-dark" id="tecnicaToObra" name="tecnicaToObra"--%>
-<%--                    value="${obra.getTecnica().getDescricao()}"--%>
-<%--                    required style="color: cornsilk;">--%>
-<%--                <c:forEach var="tecnicaToObra" items="${tecnicasToObra}">--%>
-<%--                    <c:choose>--%>
-<%--                        <c:when test="${obra.getTecnica() != null}">--%>
-<%--                            <c:if test="${obra.getTecnica() == tecnicaToObra}">--%>
-<%--                                <option value="${obra.getTecnica().getId()}" selected>${tecnicaToObra.getDescricao()}</option>--%>
-<%--                            </c:if>--%>
-<%--                            <option value="${tecnicaToObra.getId()}">${tecnicaToObra.getDescricao()}</option>--%>
-<%--                        </c:when>--%>
-<%--                        <c:otherwise>--%>
-<%--                            <option value="${tecnicaToObra.getId()}">${tecnicaToObra.getDescricao()}</option>--%>
-<%--                        </c:otherwise>--%>
-<%--                    </c:choose>--%>
-<%--                </c:forEach>--%>
-<%--            </select>--%>
-<%--        </div>--%>
-
-        <%--        select para a prateleira da obra, caso seja parte do acervo--%>
-<%--        <div class="mb-3" align="left">--%>
-<%--            <label for="prateleiraToObra" class="form-label" style="color: #262630;--%>
-<%--                   font-weight: bold;">prateleira do acervo</label>--%>
-<%--            <select class="form-control bg-dark" id="prateleiraToObra" name="prateleiraToObra"--%>
-<%--                    value="${obra.getPrateleira().getDescricao()}"--%>
-<%--                    required style="color: cornsilk;">--%>
-<%--                <c:forEach var="prateleiraToObra" items="${prateleirasToObra}">--%>
-<%--                    <c:choose>--%>
-<%--                        <c:when test="${obra.getPrateleira() != null}">--%>
-<%--                            <c:if test="${obra.getPrateleira() == prateleiraToObra}">--%>
-<%--                                <option value="${obra.getPrateleira().getId()}" selected>${prateleiraToObra.getDescricao()}</option>--%>
-<%--                            </c:if>--%>
-<%--                            <option value="${prateleiraToObra.getId()}">${prateleiraToObra.getDescricao()}</option>--%>
-<%--                        </c:when>--%>
-<%--                        <c:otherwise>--%>
-<%--                            <option value="${prateleiraToObra.getId()}">${prateleiraToObra.getDescricao()}</option>--%>
-<%--                        </c:otherwise>--%>
-<%--                    </c:choose>--%>
-<%--                </c:forEach>--%>
-<%--            </select>--%>
-<%--        </div>--%>
-
-        <%--        div para imagem atual da obra--%>
-<%--        <div align="center" style="margin-bottom: 5%;">--%>
-<%--            <c:if test="${obra != null}">--%>
-<%--                <p class="form-label">imagem atual</p>--%>
-<%--                <img src="/obra-view.action?id=${obra.getId()}" alt="" style="alignment: center;" width="70%;">--%>
-<%--                &lt;%&ndash;                <img src="data:image/png;base64,${obra.getImagemString()}"&ndash;%&gt;--%>
-<%--                &lt;%&ndash;                     alt="" style="alignment: center;" width="70%;">&ndash;%&gt;--%>
-<%--            </c:if>--%>
-<%--        </div>--%>
-
-        <%--input para upload da imagem da obra--%>
-<%--        <div class="input-group mb-3">--%>
-<%--            <input type="file" class="form-control bg-dark" id="imagemToObra" name="img" value="${obra.getImagem()}"--%>
-<%--                   formenctype="multipart/form-data">--%>
-<%--            <label class="input-group-text" for="imagemToObra">upload</label>--%>
-<%--        </div>--%>
-
-        <%--input number para altura da obra--%>
-<%--        <div class="mb-3" align="left">--%>
-<%--            <label for="alturaObra" class="form-label" style="color: #262630;--%>
-<%--                    font-weight: bold;">altura</label>--%>
-<%--            <input type="number" min="0" step="0.01" class="form-control bg-dark" id="alturaObra" name="alturaObra"--%>
-<%--                   value="${obra.getAltura()}"--%>
-<%--                   placeholder="medida da altura da obra" style="color: antiquewhite;"--%>
-<%--                   required>--%>
-<%--        </div>--%>
-
-        <%--input number para largura da obra--%>
         <div class="mb-3" align="left">
-            <label for="larguraObra" class="form-label" style="color: #262630;
-                    font-weight: bold;">largura</label>
-            <input type="number" min="0" step="0.01" class="form-control bg-dark" id="larguraObra" name="larguraObra"
-                   value="${obra.getLargura()}"
-                   placeholder="medida da largura da obra" style="color: antiquewhite;">
+            <label for="descricaoExposicao" class="form-label" style="color: #262630;
+                       font-weight: bold;">descrição</label>
+            <input type="text" class="form-control bg-dark" id="descricaoExposicao" name="descricaoExposicao"
+                   value="${exposicao.getDescricao()}"
+                   placeholder="descrição da exposição" style="color: antiquewhite; align-content: space-around;"
+                   required/>
         </div>
 
-        <%--input number para o ano da obra--%>
-        <div class="mb-3" align="left">
-            <label for="anoToObra" class="form-label" style="color: #262630;
-                    font-weight: bold;">ano</label>
-            <input type="number" min="1900" max="2022" maxlength="4" class="form-control bg-dark" id="anoToObra" name="anoToObra"
-                   value="${obra.getAno()}"
-                   placeholder="ano da obra" style="color: antiquewhite;">
+        <%--checkbox para configurar exposição como de obras do acervo da instituição ou de procedência mista--%>
+        <div class="mb-3" align="left" id="tipoExposicao" style="margin-top: 5%;">
+            <label for="tipoExposicao" class="form-label" style="color: #262630;
+                       font-weight: bold;">tipo de exposição
+            </label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="${exposicao.getAcervo()}" id="flexCheckAcervo"/>
+                    <label class="form-check-label" for="flexCheckAcervo">
+                        somente obras do acervo
+                    </label>
+            </div>
         </div>
+
+<%--        checkbox para ativar ou não exposição--%>
+        <div class="mb-3" align="left">
+            <label for="tipoExposicao" class="form-label" style="color: #262630;
+                       font-weight: bold;">ativar exposição?
+            </label>
+            <input class="form-check-input" type="checkbox" value="${exposicao.getAtiva()}" id="flexCheckExpoAtiva"/>
+            <label class="form-check-label" for="flexCheckExpoAtiva">
+                ativar
+            </label>
+        </div>
+
+        <%--div para imagem de banner atual da exposição--%>
+        <div align="center" style="margin-bottom: 5%;">
+            <c:if test="${exposicao != null}">
+                <p class="form-label">banner atual</p>
+                <img src="/banner-exposicao-view.action?id=${exposicao.getId()}" alt=""
+                     style="alignment: center;" width="70%;">
+            </c:if>
+        </div>
+
+        <%--        input para upload do banner da exposição--%>
+        <div class="input-group mb-3">
+            <input type="file" class="form-control bg-dark" id="bannerToExposicao" name="imgBanner"
+                   value="${exposicao.getBanner()}"
+                   formenctype="multipart/form-data"/>
+            <label class="input-group-text" for="bannerToExposicao">upload</label>
+        </div>
+
+<%--        input para a data de início da exposição--%>
+        <div class="mb-3" align="left" style="margin-top: 5%;">
+            <label for="data_inicio" class="form-label" style="color: #262630;
+                       font-weight: bold;">data de início
+            </label>
+            <input class="bg-dark text-light" type="date" value="${exposicao.getDataInicio()}" id="data_inicio" name="data_inicio"/>
+        </div>
+
+        <%--        input para a data de fim da exposição--%>
+        <div class="mb-3" align="left">
+            <label for="data_fim" class="form-label" style="color: #262630;
+                       font-weight: bold; margin-right: 2%;">data de fim
+            </label>
+            <input class="bg-dark text-light" type="date" value="${exposicao.getDataFim()}" id="data_fim" name="data_fim"/>
+        </div>
+
+
+<%--        <div align="center" style="margin-top: 10%; margin-bottom: 10%;">--%>
+<%--            <button class="btn btn-outline-info btn-lg bg-dark"--%>
+<%--                        style="font-weight: bold;" data-bs-toggle="modal" data-bs-target="#modalSelecaoObras">--%>
+<%--                    <span style="white-space: nowrap;">selecionar obras</span>--%>
+<%--            </button>--%>
+<%--        </div>--%>
+
+<%--        accordion para seleção de obras pra nova exposição--%>
+        <div class="accordion accordion-flush" id="accordionFlushExample" style="margin-top: 8%;">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed bg-dark text-light align-baseline" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <span style="font-size: 22px; font-weight: bold; margin-left: 40%; color: hotpink">selecionar obras</span>
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body bg-dark text-light">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                </div>
+            </div>
+        </div>
+
+
+
 
         <%--botões de salvar e excluir para obra--%>
-        <div align="left">
-            <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#modalConfirmacaoExposicao">
+        <div align="left" style="margin-top: 5%;">
+            <button class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#modalConfirmacaoExposicao">
                 salvar
             </button>
             <c:if test="${exposicao != null}">
-                <button type="button" class="btn btn-outline-danger btn-lg" data-bs-toggle="modal" data-bs-target="#modalConfirmacaoExposicao">
+                <button
+                        class="btn btn-outline-danger btn-lg" data-bs-toggle="modal" data-bs-target="#modalConfirmacaoExposicao">
                     excluir
                 </button>
                 <input type="submit" class="btn btn-dark" data-bs-dismiss="modal"
@@ -185,7 +143,9 @@
             </c:if>
         </div>
 
-        <!-- Modal de confirmação de cadastro-->
+
+
+        <%-- Modal de confirmação de cadastro--%>
         <div class="modal fade" id="modalConfirmacaoExposicao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
              aria-labelledby="modalConfirmacaoExposicaoLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -202,14 +162,14 @@
                                formaction="/exposicao/salvar-exposicao.action" formmethod="post" value="salvar"/>
                         <c:if test="${exposicao != null}">
                             <input type="submit" class="btn btn-outline-danger" data-bs-dismiss="modal"
-                                   formaction="/exposicao/excluir-exposicao.action" value="excluir" formmethod="post">
+                                   formaction="/exposicao/excluir-exposicao.action" value="excluir" formmethod="post"/>
                         </c:if>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">cancelar</button>
+                        <button class="btn btn-danger" data-bs-dismiss="modal">cancelar</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
     </div>
 </form>
 </body>

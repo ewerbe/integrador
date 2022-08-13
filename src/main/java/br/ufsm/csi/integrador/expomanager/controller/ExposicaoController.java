@@ -38,13 +38,13 @@ public class ExposicaoController {
 
     @GetMapping({"/cadastro-exposicao.action", "/cadastro-exposicao"})
     public String getCadastroExposicao(Model model,
-                                       @RequestParam(value = "id") Long idUsuario) throws UnsupportedEncodingException {
+                                       @RequestParam(value = "id", required = false) Long idUsuario) throws UnsupportedEncodingException {
 
-        Usuario usuario = usuarioService.find(idUsuario);
+        //Usuario usuario = usuarioService.find(idUsuario);
         List<Obra> obrasToExposicao = getObrasToExposicao();
 
         model.addAttribute("obrasToExposicao", obrasToExposicao);
-        model.addAttribute("usuario", usuario);
+        //model.addAttribute("usuario", usuario);
         model.addAttribute("isGerente", true);
         return "cadastro-exposicao";
     }
@@ -142,8 +142,8 @@ public class ExposicaoController {
 
     @RequestMapping(value = "/exposicao/excluir-exposicao.action", method = RequestMethod.POST)
     public String excluirExposicao(HttpServletRequest request) {
-        Long idObra = Long.parseLong(request.getParameter("idObra"));
-        obraService.delete(idObra);
+        Long idExposicao = Long.parseLong(request.getParameter("idExposicao"));
+        exposicaoService.delete(idExposicao);
         return "redirect:/exposicoes.action";
     }
 
